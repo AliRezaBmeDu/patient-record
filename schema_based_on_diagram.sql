@@ -1,3 +1,7 @@
+-- Create a database and connect
+CREATE DATABASE patient_record;
+\c patient_record;
+
 --Create patient table
 CREATE TABLE patients (
     id SERIAL PRIMARY KEY,
