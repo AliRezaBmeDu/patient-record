@@ -91,7 +91,7 @@ https://github.com/AliRezaBmeDu/patient-record.git
 To run the project, execute the following steps:
 
 - Open your postgresql shell
-- Use [schema_based_on_diagram.sql](./schema.sql) to create all tables.
+- Use [schema_based_on_diagram.sql](./schema_based_on_diagram.sql) to create all tables.
 
 <!-- AUTHORS -->
 
