@@ -48,6 +48,7 @@ CREATE TABLE history_treatment (
         Foreign Key (treatment_id)
             REFERENCES treatment(id)
 );
+
 -- Create a join table for invoices and treatment
 CREATE TABLE invoice_items(
     id SERIAL PRIMARY KEY,
@@ -61,3 +62,11 @@ CREATE TABLE invoice_items(
     CONSTRAINT fk_invoice
         Foreign Key (invoice_id) REFERENCES invoices(id)
 );
+
+-- Add indexes for foreign keys to improve the performance
+CREATE INDEX ON medical_histories (patient_id);
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items(treatment_id);
+CREATE INDEX ON invoice_items(invoice_id);
+CREATE INDEX ON history_treatment(history_id);
+CREATE INDEX ON history_treatment (treatment_id);
