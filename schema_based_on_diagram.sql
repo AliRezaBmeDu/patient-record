@@ -35,3 +35,29 @@ CREATE TABLE treatment (
     name VARCHAR(255),
     type VARCHAR(255)
 );
+
+-- Create a join table for medical_histories and treatment
+CREATE TABLE history_treatment (
+    history_id INT,
+    treatment_id INT,
+    PRIMARY KEY (history_id, treatment_id),
+    CONSTRAINT fk_history
+        FOREIGN KEY (history_id)
+            REFERENCES medical_histories(id),
+    CONSTRAINT fk_treatment
+        Foreign Key (treatment_id)
+            REFERENCES treatment(id)
+);
+-- Create a join table for invoices and treatment
+CREATE TABLE invoice_items(
+    id SERIAL PRIMARY KEY,
+    unit_price DECIMAL,
+    quantity INT,
+    total_price DECIMAL,
+    invoice_id INT,
+    treatment_id INT,
+    CONSTRAINT fk_treatment
+        Foreign Key (treatment_id) REFERENCES treatment(id),
+    CONSTRAINT fk_invoice
+        Foreign Key (invoice_id) REFERENCES invoices(id)
+);
